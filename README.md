@@ -88,3 +88,9 @@ mingw32-make
 ```
 
 For Windows with Visual Studio, open the generated `learn-opengl-f.sln` file and build the startup project.
+
+## Usage
+
+`Space` Toggle **Fill** / **Line** polygon modes
+
+`Esc` Exit
