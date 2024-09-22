@@ -22,6 +22,13 @@ This project shows you an example of how to:
 
 The code is multi-platform and runs on Windows, Linux, and MacOS.
 
+## Screenshots
+
+<p float="left">
+  <img src="images/screenshot1.jpg" width="250" />
+  <img src="images/screenshot2.jpg" width="250" /> 
+</p>
+
 ## Why 'F'?
 
 The 'F' is inspired by a comment chain on the LearnOpenGL.com website where developers are posting their beginner OpenGL 'F' creations:
