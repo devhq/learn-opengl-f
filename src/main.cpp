@@ -14,7 +14,7 @@ const std::string FILE_NAME_VERT_SHADER(CONFIG_FILE_NAME_VERT_SHADER);
 const std::string FILE_NAME_FRAG_SHADER(CONFIG_FILE_NAME_FRAG_SHADER);
 
 void callbackFramebufferSize(GLFWwindow* window, int width, int height);
-void processKeyPress(GLFWwindow* window);
+void callbackKeyboardInput(GLFWwindow* window, int key, int scan_code, int action, int mods);
 
 int main()
 {
@@ -34,6 +34,7 @@ int main()
 	}
 	glfwMakeContextCurrent(window);
 	glfwSetFramebufferSizeCallback(window, callbackFramebufferSize);
+	glfwSetKeyCallback(window, callbackKeyboardInput);
 
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
@@ -90,12 +91,9 @@ int main()
 
 	while (!glfwWindowShouldClose(window))
 	{
-		processKeyPress(window);
-
 		glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
 		glClearColor(0.8f, 1.0f, 0.8f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
-		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);	//line mode
 
 		shader.useProgram();
 		glBindVertexArray(vao_f);
@@ -118,8 +116,17 @@ void callbackFramebufferSize(GLFWwindow* window, int width, int height)
 	glViewport(0, 0, width, height);
 }
 
-void processKeyPress(GLFWwindow* window)
+void callbackKeyboardInput(GLFWwindow* window, int key, int scan_code, int action, int mods)
 {
-	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+	{
 		glfwSetWindowShouldClose(window, true);
+	}
+		
+	if (key == GLFW_KEY_SPACE && action == GLFW_PRESS)
+	{
+		int polygon_mode[2];
+		glGetIntegerv(GL_POLYGON_MODE, polygon_mode);
+		glPolygonMode(GL_FRONT_AND_BACK, polygon_mode[0] == GL_FILL ? GL_LINE : GL_FILL);
+	}
 }
