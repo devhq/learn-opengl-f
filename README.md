@@ -1,5 +1,5 @@
 <div align="center">
-    <a href="https://github.com/devhq/learn-opengl-f">
+    <a href="https://github.com/hqamhiyeh/learn-opengl-f">
         <img src="images/logo.png" alt="Logo" width="80" height="80">
     </a>
     <h3 align="center">Learn-OpenGL-F</h3>
@@ -47,7 +47,7 @@ You will need [CMake](https://cmake.org/download/) to generate the files needed 
 
 The best way is to use git clone with the recursive option because the repository includes GLFW as a submodule; this ensures that the GLFW repository is downloaded as well:
 ```
-git clone --recursive https://github.com/devhq/learn-opengl-f
+git clone --recursive https://github.com/hqamhiyeh/learn-opengl-f
 ```
 
 ## How do I build it?
